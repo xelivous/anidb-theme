@@ -1,7 +1,229 @@
-body {
-    background: #ff0;
+/* variables/colors/etc */
+:root {
+    --background: #282a36;
+    --current-line: #44475a;
+    --foreground: #f8f8f2;
+    --comment: #6272a4;
+    --cyan: #8be9fd;
+    --green: #50fa7b;
+    --orange: #ffb86c;
+    --pink: #ff79c6;
+    --purple: #bd93f9;
+    --red: #ff5555;
+    --yellow: #f1fa8c;
 }
 
+/* resets */
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+/*
+Utilities
+*/
 .hide {
     display: none;
+}
+
+/*
+tooltips
+*/
+.tooltip {
+    position: relative;
+}
+.tooltip .wrapper {
+    display: none;
+    opacity: 0.0;
+}
+.tooltip:hover .wrapper {
+    display: flex;
+    opacity: 1.0;
+    position: absolute;
+    background: var(--yellow);
+    color: #000000;
+    border: 1px solid #000;
+    border-radius: 0.5rem;
+    padding: 0.25rem;
+    top: 2rem;
+    z-index: 100;
+    min-width: 30rem;
+    max-width: 50vw;
+    filter: drop-shadow(0.25rem 0.25rem 0.1rem #0004);
+}
+
+/* 
+main layout 
+*/
+body {
+    display: grid;
+    grid-template-columns: 10rem 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "nav main"
+        "nav footer";
+}
+body > #layout-nav {
+    grid-area: nav;
+}
+body > #layout-content {
+    grid-area: main;
+}
+body > #layout-footer {
+    grid-area: footer;
+}
+
+/* 
+Main Navigation
+*/
+#layout-nav {
+    display: flex;
+    flex-direction: column;
+}
+#layout-nav ul {
+    margin: 0;
+    padding-left: 0;
+}
+#layout-nav a {
+    text-decoration: none;
+}
+#layout-menu {
+    display: flex;
+    flex-direction: column;
+}
+#layout-menu li {
+    list-style: none;
+    position: relative;
+}
+#layout-menu .sub-menu > .tab {
+    display: block;
+    padding: 0.25rem 0.5rem;
+    border-bottom: 0.25rem solid;
+    position: relative;
+}
+/* ribbon */
+#layout-menu .sub-menu > .tab:before {
+    content: "";
+    display: block;
+    width: 0.5rem;
+    height: 100%;
+    background: #f0f;
+    border-bottom: 0.25rem solid;
+    position: absolute;
+    right: 0;
+    left: 100%;
+    bottom: 0;
+    top: 0;
+}
+#layout-menu .sub-menu > .tab:after {
+    content: "";
+    display: block;
+    width: 0.5rem;
+    height: 1rem;
+    position: absolute;
+    right: 0;
+    left: 100%;
+    bottom: 0;
+    top: 100%;
+    clip-path: polygon(0 0.25rem, 100% 0.25rem, 0 100%);
+}
+#layout-menu .sub-menu > ul {
+    padding: 0.25rem 1rem;
+}
+
+#layout-nav .menu_hr {
+    height: 1rem;
+    width: 100%;
+    background: #f0f;
+}
+
+/* icons */
+
+.i_icon {
+    display: inline-block;
+    background: #0f05;
+    vertical-align: text-bottom;
+    text-align: center;
+}
+
+.i_icon:before {
+    background: #f0f;
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    vertical-align: middle;
+}
+
+.i_icon.i_plus:before {
+    content: "+";
+}
+.i_icon.i_minus:before {
+    content: "-";
+}
+.i_icon.i_help:before {
+    content: "?";
+}
+
+/* 
+color styling
+*/
+body {
+    background-color: var(--background);
+    color: var(--foreground);
+}
+#layout-nav {
+    background-color: var(--current-line);
+}
+#layout-nav a {
+    color: var(--foreground);
+}
+#layout-menu .sub-menu > .tab {
+    background-color: var(--comment);
+}
+#layout-menu .sub-menu > .tab:before {
+    background-color: var(--comment);
+}
+#layout-menu .sub-menu > .tab:after {
+    background-color: var(--comment);
+}
+
+#layout-menu .sub-menu.main > .tab
+,#layout-menu .sub-menu.main > .tab:before
+{
+    border-color: var(--red);
+}
+
+#layout-menu .sub-menu.listings > .tab
+,#layout-menu .sub-menu.listings > .tab:before
+{
+    border-color: var(--orange);
+}
+
+#layout-menu .sub-menu.my > .tab
+,#layout-menu .sub-menu.my > .tab:before
+{
+    border-color: var(--yellow);
+}
+
+#layout-menu .sub-menu.mod > .tab
+,#layout-menu .sub-menu.mod > .tab:before 
+{
+    border-color: var(--green);
+}
+
+#layout-menu .sub-menu.support > .tab 
+,#layout-menu .sub-menu.support > .tab:before
+{
+    border-color: var(--cyan);
+}
+#layout-menu .sub-menu.terms > .tab
+,#layout-menu .sub-menu.terms > .tab:before 
+{
+    border-color: var(--purple);
+}
+#layout-menu .sub-menu.account > .tab
+,#layout-menu .sub-menu.account > .tab:before
+{
+    border-color: var(--pink);
 }
