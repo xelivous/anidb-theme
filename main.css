@@ -33,16 +33,6 @@ html, body {
     font-size: 16px;
 }
 
-table {
-    
-}
-thead tr {
-    
-}
-tbody tr {
-    
-}
-
 /*
 building blocks
 */
@@ -322,6 +312,81 @@ Main Navigation
     max-width: 150px;
 }
 
+/* forum */
+.forum > .navbar {
+    background: var(--background-lighter);
+}
+
+.forum > .search {
+    background: var(--background-lighter);
+}
+
+.forum .pagination {
+    display: flex;
+}
+.forum .pagination span {
+    display: inline-block;
+    margin: 0 0.5rem;
+}
+.forum .pagination .jump {
+    order: 2;
+    display: flex;
+}
+.forum .pagination .jump > * {
+    padding: 0.25rem 0.5rem;
+    border: 1px solid;
+    margin: 0 0.1rem;
+}
+
+.forum .pagination .cnt {
+    order: 0;
+}
+.forum .pagination .range {
+    order: 1;
+}
+
+.forum > .threads {
+    margin: 0.5rem 0;
+}
+
+.forum .topiclist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.forum .topiclist .header {
+    list-style: none;
+}
+
+.forum .topiclist .header div.row {
+    background: var(--background-highlight);
+    border-bottom: 0.25rem solid;
+    padding: 0.25rem;
+}
+
+.forum .topiclist div.row {
+    display: grid;
+    grid-template-columns: 5fr 5rem 5rem 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "icon posts views lastpost";
+    padding: 0.5rem;
+    background: var(--background-lighter);
+    border-bottom: 1px solid var(--background);
+}
+.forum .topiclist div.row .icon {
+    grid-area: icon;
+}
+.forum .topiclist div.row .posts {
+    grid-area: posts;
+}
+.forum .topiclist div.row .views {
+    grid-area: views;
+}
+.forum .topiclist div.row .lastpost {
+    grid-area: lastpost;
+}
+
 
 /* page: index */
 .main_all {
@@ -496,6 +561,17 @@ th {
     filter: drop-shadow(0.25rem 0.25rem 0.1rem #0004);
 }
 
+.forum .pagination .jump a {
+    background: var(--background-highlight);
+    border-color: var(--background);
+    color: var(--foreground);
+}
+.forum .pagination .jump strong {
+    background: var(--background-lighter);
+    border-color: var(--background);
+    color: var(--foreground);
+}
+
 /* overrides */
 .hide {
     display: none;
@@ -503,3 +579,4 @@ th {
 .wrap {
     overflow-wrap: break-word;
 }
+
