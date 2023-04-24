@@ -380,6 +380,10 @@ Main Navigation
 .forum .topiclist div.row .posts {
     grid-area: posts;
 }
+/* anidb css is insane and it doesn't have unique identifier for topics */
+.forum .topiclist div.row .posts ~ .posts {
+    grid-area: views;
+}
 .forum .topiclist div.row .views {
     grid-area: views;
 }
