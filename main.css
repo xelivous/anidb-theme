@@ -14,6 +14,12 @@
     --purple: #bd93f9;
     --red: #ff5555;
     --yellow: #f1fa8c;
+
+    /* from https://www.transparenttextures.com */
+    --bg-padded: url("https://xelivous.gitlab.io/anidb-theme/img/padded.png");
+    --bg-classy-fabric: url("https://xelivous.gitlab.io/anidb-theme/img/classy-fabric.png");
+    --bg-darth-stripe: url("https://xelivous.gitlab.io/anidb-theme/img/darth-stripe.png");
+    --bg-fake-brick: url("https://xelivous.gitlab.io/anidb-theme/img/fake-brick.png");
 }
 
 /* resets */
@@ -321,6 +327,10 @@ Main Navigation
     background: var(--background-lighter);
 }
 
+.forum .topic_actions {
+    margin: 0.5rem 0;
+}
+
 .forum .pagination {
     display: flex;
 }
@@ -399,6 +409,90 @@ Main Navigation
     float: right;
 }
 
+.forum .cmt_entries .comment {
+    display: grid;
+    grid-template-columns: 10rem 1fr;
+    grid-template-rows: 1fr auto;
+    grid-template-areas: 
+        "poster comment"
+        "footer footer";
+}
+.forum .cmt_entries .comment .profile {
+    grid-area: poster;
+    background: var(--background-lighter);
+    padding: 0.5rem;
+    padding-top: 2rem;
+    
+}
+.forum .cmt_entries .comment .profile > .user {
+    display: flex;
+    flex-direction: column;
+}
+.forum .cmt_entries .comment .profile > .user .name {
+    order: 0;
+}
+.forum .cmt_entries .comment .profile > .user .image {
+    order: 1;
+    align-self: center;
+    justify-self: center;
+    margin: 0.5rem;
+}
+.forum .cmt_entries .comment .profile > .user .image a {
+    display: block;
+}
+.forum .cmt_entries .comment .profile > .user picture {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.forum .cmt_entries .comment .postbody {
+    grid-area: comment;
+    background: var(--background-lighter);
+}
+.forum .cmt_entries .comment .postfooter {
+    grid-area: footer;
+    background: var(--background-lighter);
+    text-align: right;
+    display: none; /*todo: figure out if top is desireable */
+}
+.forum .cmt_entries .comment .postbody {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: 
+        "title title"
+        "comment comment"
+        "buttons buttons";
+}
+.forum .cmt_entries .comment .postbody .author {
+    grid-area: title;
+    background: var(--background-highlight);
+    border-bottom: 0.1rem solid;
+    border-top: 0.1rem solid;
+    padding: 0.25rem;
+    margin: 0;
+}
+.forum .cmt_entries .comment .postbody .author a:first-of-type {
+    float: right;
+}
+
+.forum .cmt_entries .comment .postbody .content {
+    grid-area: comment;
+    padding: 1rem;
+}
+.forum .cmt_entries .comment .postbody .content span.postedited {
+    display: block;
+    margin: 1rem;
+    text-align: right;
+}
+
+.forum .cmt_entries .comment .postbody .actions {
+    grid-area: buttons;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
 
 /* page: index */
 .main_all {
@@ -481,6 +575,7 @@ color styling
 */
 body {
     background-color: var(--root-bg);
+    background-image: var(--bg-padded);
     color: var(--foreground);
 }
 a {
@@ -499,10 +594,12 @@ th {
 
 #layout-main {
     background-color: var(--background);   
+    background-image: var(--bg-fake-brick);
 }
 
 #layout-nav {
     background-color: var(--background-lighter);
+    background-image: var(--bg-classy-fabric);
 }
 #layout-nav a {
     color: var(--foreground);
@@ -591,4 +688,3 @@ th {
 .wrap {
     overflow-wrap: break-word;
 }
-
