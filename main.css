@@ -362,6 +362,7 @@ Main Navigation
     background: var(--background-highlight);
     border-bottom: 0.25rem solid;
     padding: 0.25rem;
+    font-weight: bold;
 }
 
 .forum .topiclist div.row {
@@ -389,6 +390,13 @@ Main Navigation
 }
 .forum .topiclist div.row .lastpost {
     grid-area: lastpost;
+}
+.forum .topiclist div.row a.topictitle {
+    display: block;
+}
+/* it would be great if the author blurb was in a span or something */
+.forum .topiclist div.row .title .pagination {
+    float: right;
 }
 
 
