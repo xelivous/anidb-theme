@@ -16,10 +16,10 @@
     --yellow: #f1fa8c;
 
     /* from https://www.transparenttextures.com */
-    --bg-padded: url("https://xelivous.gitlab.io/anidb-theme/img/padded.png");
-    --bg-classy-fabric: url("https://xelivous.gitlab.io/anidb-theme/img/classy-fabric.png");
-    --bg-darth-stripe: url("https://xelivous.gitlab.io/anidb-theme/img/darth-stripe.png");
-    --bg-fake-brick: url("https://xelivous.gitlab.io/anidb-theme/img/fake-brick.png");
+    --bg-padded: url("https://xelivous.github.io/anidb-theme/img/padded.png");
+    --bg-classy-fabric: url("https://xelivous.github.io/anidb-theme/img/classy-fabric.png");
+    --bg-darth-stripe: url("https://xelivous.github.io/anidb-theme/img/darth-stripe.png");
+    --bg-fake-brick: url("https://xelivous.github.io/anidb-theme/img/fake-brick.png");
 }
 
 /* resets */
